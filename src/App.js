@@ -1,42 +1,51 @@
-import React, { useState } from 'react';
+import "./App.css";
+import React from "react";
+import { Routes, Route, NavLink } from "react-router-dom";
+import App_todo from "../src/todo/App_todo";
+import App_expense from "../src/expense_demo/App_expense"
 
-import NewExpense from './components/NewExpense/NewExpense';
-import Expenses from './components/Expenses/Expenses';
+function App() {
+  return (
+    <div id="nav_wrapper">
+      <NavLink to="/">Home Page</NavLink>     
+      <NavLink to="/about">About Page</NavLink>     
+      <NavLink to="/login">login</NavLink>    
+      <NavLink to="/todo">To Do</NavLink>      
+      <NavLink to="/expense_demo">Expense</NavLink>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/*" element={<PageNotFound />}></Route>
+        <Route path="/todo" element={<App_todo />}></Route>
+        <Route path="/expense_demo" element={<App_expense />}></Route>
+      </Routes>
+    </div>
+  );
+}
 
-const App = () => {
-  const DUMMY_EXPENSES = [
-    {
-      id: 'e1',
-      title: 'Toilet Paper',
-      amount: 94.12,
-      date: new Date(2020, 7, 14),
-    },
-    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
-    {
-      id: 'e3',
-      title: 'Car Insurance',
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
-    },
-    {
-      id: 'e4',
-      title: 'New Desk (Wooden)',
-      amount: 450,
-      date: new Date(2021, 5, 12),
-    },
-  ];
-
-  const [expenses, setExpenses] = useState( DUMMY_EXPENSES );
-  const addExpenseHandler = expense => {
-      setExpenses((prevExpenses) => {
-       return [expense, ...prevExpenses];
-      });
-  }; 
-
+function Home() {
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={expenses} />
+      <h1>Home Page</h1>
+      <p>This is Home page of Website</p>
+    </div>
+  );
+}
+
+function About() {
+  return (
+    <div>
+      <h1>About Page</h1>
+      <p>This is About page of Website</p>
+    </div>
+  );
+}
+
+function PageNotFound() {
+  return (
+    <div>
+      <h1>404 Page</h1>
+      <p>This page not found</p>
     </div>
   );
 }
