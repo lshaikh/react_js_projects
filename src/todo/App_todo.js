@@ -26,7 +26,7 @@ const App_todo = () => {
   };
 
   let content = (
-    <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
+    <p style={{ textAlign: 'center' }}>No to do found. Maybe add one?</p>
   );
 
   if (courseGoals.length > 0) {

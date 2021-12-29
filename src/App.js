@@ -2,22 +2,24 @@ import "./App.css";
 import React from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 import App_todo from "../src/todo/App_todo";
-import App_expense from "../src/expense_demo/App_expense"
+import App_expense from "../src/expense_demo/App_expense";
+import App_axios from "../src/axios/App_axios";
 
 function App() {
   return (
     <div id="nav_wrapper">
-      <NavLink to="/">Home Page</NavLink>     
-      <NavLink to="/about">About Page</NavLink>     
-      <NavLink to="/login">login</NavLink>    
+      <NavLink activeClassName="active" to="/">Home Page</NavLink>     
+      <NavLink to="/axios">Axios</NavLink>     
+      <NavLink to="/reminder_app">Reminder App</NavLink>    
       <NavLink to="/todo">To Do</NavLink>      
-      <NavLink to="/expense_demo">Expense</NavLink>
+      <NavLink to="/expense_demo">Expense Item</NavLink>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/*" element={<PageNotFound />}></Route>
+        <Route path="/axios" element={<App_axios />}></Route>
+        {/* <Route path="/reminder_app" element={<App_reminder/>}></Route> */}
         <Route path="/todo" element={<App_todo />}></Route>
         <Route path="/expense_demo" element={<App_expense />}></Route>
+        <Route path="/*" element={<PageNotFound />}></Route>
       </Routes>
     </div>
   );
@@ -44,8 +46,8 @@ function About() {
 function PageNotFound() {
   return (
     <div>
-      <h1>404 Page</h1>
-      <p>This page not found</p>
+      <h1 style={{color:'red'}}>404 Page</h1>
+      <h1>This page not found</h1>
     </div>
   );
 }

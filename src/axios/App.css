@@ -37,29 +37,14 @@
   }
 }
 
-#nav_wrapper {
-  margin-top: 10px;
+.outer_wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-#nav_wrapper a {
-  font: inherit;
-    cursor: pointer;
-    padding: 1rem 2rem;
-    border: 1px solid #291d97;
-    background-color: #1027f3;
-    color: white;
-    border-radius: 6px;
-    margin-right: 1rem;
-    padding: 5px 5px;
-    text-decoration: none;
+.outer_wrapper div {
+  padding: 20px;
+  border:1px solid black;
+  margin: 10px;  
 }
-
-#nav_wrapper a:hover,
-#nav_wrapper a:active,
-#nav_wrapper a.active {
-  color: #06f3e8;
-  padding-bottom: 0.25rem;
-  border-bottom: 3px solid #95f0e8;
-}
-
-
